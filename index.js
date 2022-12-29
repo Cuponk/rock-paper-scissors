@@ -15,32 +15,31 @@ function getComputerChoice() {
 
   function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'paper') {
-        return 'You lose!';
+        return 1;
     }
     else if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors') {
-        return 'You win!';
+        return 2;
     }
     else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'rock') {
-        return 'You win!';
+        return 2;
     }
     else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'scissors') {
-        return 'You lose!';
+        return 1;
     }
     else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'rock') {
-        return 'You lose!';
+        return 1;
     }
     else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'paper') {
-        return 'You Win!'
+        return 2;
     }
     else if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
-        return 'Tie!';
+        return 3;
     }
   }
 
   function game() {
     let userScore = 0;
     let cpuScore = 0;
-    while (userScore !== 5 || cpuScore !== 5) {
-        let input = prompt('Rock, Paper or Scissors')
-    }
   }
+
+  game();
