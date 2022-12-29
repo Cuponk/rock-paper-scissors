@@ -38,8 +38,29 @@ function getComputerChoice() {
   }
 
   function game() {
-    let userScore = 0;
-    let cpuScore = 0;
+      let userScore = 0;
+      let cpuScore = 0;
+    for (let i = 0; i < 5; i++) {
+      let input = prompt('Rock, Paper, Scissors?')
+      if (playRound(input, getComputerChoice()) == 1) {
+        cpuScore++;
+        console.log('You loose! The score is ' + userScore + ' to ' + cpuScore + '.');
+      }
+      if (playRound(input, getComputerChoice()) == 2) {
+        userScore++;
+        console.log('You win! The score is ' + userScore + ' to ' + cpuScore + '.');
+      }
+      if (playRound(input, getComputerChoice()) == 3) {
+        cpuScore++;
+        console.log('Tie! The score is ' + userScore + ' to ' + cpuScore + '.');
+      }
+    }
+    if (userScore > cpuScore) {
+      console.log('You win!');
+    }
+    else {
+      console.log('You lose!');
+    }
   }
 
   game();
