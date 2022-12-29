@@ -2,40 +2,45 @@ function getComputerChoice() {
     let rand = Math.floor(Math.random() * 3);
     let result;
     if (rand === 0) {
-      result = 'Rock';
+      result = 'rock';
     }
     else if (rand === 1) {
-      result = 'Paper';
+      result = 'paper';
     }
     else if (rand === 2) {
-      result = 'Scissors';
+      result = 'scissors';
     }
     return result;
   }
+  console.log(getComputerChoice());
 
   function playRound(playerSelection, computerSelection) {
-    if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'paper') {
+    if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'paper') {
         return 1;
     }
-    else if (playerSelection.toLowerCase() == 'rock' && computerSelection.toLowerCase() == 'scissors') {
+    else if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'scissors') {
         return 2;
     }
-    else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'rock') {
+    else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'rock') {
         return 2;
     }
-    else if (playerSelection.toLowerCase() == 'paper' && computerSelection.toLowerCase() == 'scissors') {
+    else if (playerSelection.toLowerCase() == 'paper' && computerSelection == 'scissors') {
         return 1;
     }
-    else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'rock') {
+    else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'rock') {
         return 1;
     }
-    else if (playerSelection.toLowerCase() == 'scissors' && computerSelection.toLowerCase() == 'paper') {
+    else if (playerSelection.toLowerCase() == 'scissors' && computerSelection == 'paper') {
         return 2;
     }
     else if (playerSelection.toLowerCase() == computerSelection.toLowerCase()) {
         return 3;
     }
   }
+
+  console.log(playRound('rock', 'rock'));
+  console.log(playRound('paper', 'rock'));
+  console.log(playRound('scissors', 'rock'));
 
   function game() {
       let userScore = 0;
@@ -44,14 +49,13 @@ function getComputerChoice() {
       let input = prompt('Rock, Paper, Scissors?')
       if (playRound(input, getComputerChoice()) == 1) {
         cpuScore++;
-        console.log('You loose! The score is ' + userScore + ' to ' + cpuScore + '.');
+        console.log('You lose! The score is ' + userScore + ' to ' + cpuScore + '.');
       }
       if (playRound(input, getComputerChoice()) == 2) {
         userScore++;
         console.log('You win! The score is ' + userScore + ' to ' + cpuScore + '.');
       }
       if (playRound(input, getComputerChoice()) == 3) {
-        cpuScore++;
         console.log('Tie! The score is ' + userScore + ' to ' + cpuScore + '.');
       }
     }
@@ -59,7 +63,7 @@ function getComputerChoice() {
       console.log('You win!');
     }
     else {
-      console.log('You lose!');
+      console.log('You lose!')
     }
   }
 
