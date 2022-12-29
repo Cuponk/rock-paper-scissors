@@ -12,7 +12,6 @@ function getComputerChoice() {
     }
     return result;
   }
-  console.log(getComputerChoice());
 
   function playRound(playerSelection, computerSelection) {
     if (playerSelection.toLowerCase() == 'rock' && computerSelection == 'paper') {
@@ -38,10 +37,6 @@ function getComputerChoice() {
     }
   }
 
-  console.log(playRound('rock', 'rock'));
-  console.log(playRound('paper', 'rock'));
-  console.log(playRound('scissors', 'rock'));
-
   function game() {
       let userScore = 0;
       let cpuScore = 0;
@@ -51,11 +46,11 @@ function getComputerChoice() {
         cpuScore++;
         console.log('You lose! The score is ' + userScore + ' to ' + cpuScore + '.');
       }
-      if (playRound(input, getComputerChoice()) == 2) {
+      else if (playRound(input, getComputerChoice()) == 2) {
         userScore++;
         console.log('You win! The score is ' + userScore + ' to ' + cpuScore + '.');
       }
-      if (playRound(input, getComputerChoice()) == 3) {
+      else if (playRound(input, getComputerChoice()) == 3) {
         console.log('Tie! The score is ' + userScore + ' to ' + cpuScore + '.');
       }
     }
