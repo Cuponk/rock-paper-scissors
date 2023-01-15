@@ -43,7 +43,8 @@ function getComputerChoice() {
   const rock = document.querySelector('.rock');
   const paper = document.querySelector('.paper');
   const scissors = document.querySelector('.scissors');
-  const restart = document.querySelector('#restart')
+  const restart = document.querySelector('#restart');
+  const winLoss = document.querySelector('#winLoss');
 
   let result = document.querySelector('#results');
 
@@ -54,7 +55,8 @@ function updateScore() {
   let computerScore = document.querySelector('#compScore');
   computerScore.textContent = `Computer: ${cScore}`;
 }
-result.textContent = 'First to 5 wins';
+
+winLoss.textContent = 'First to 5 wins';
 
   rock.addEventListener('click', () => {
     if (playRound('rock', getComputerChoice()) == 1) {
@@ -76,12 +78,10 @@ result.textContent = 'First to 5 wins';
     if (playRound('paper', getComputerChoice()) == 1) {
       cScore++;
       result.textContent = 'You lose!';
-      updateScore();
     }
     else if (playRound('paper', getComputerChoice()) == 2) {
       pScore++;
       result.textContent = 'You win!';
-      updateScore();
     }
     else if (playRound('paper', getComputerChoice()) == 3) {
       result.textContent = 'Draw!';
@@ -104,19 +104,13 @@ result.textContent = 'First to 5 wins';
     }
   });
 
+  if (computerScore.textContent = 'computerScore.textContent = `Computer: 5') {
+    console.log('works');
+  }
+
   restart.addEventListener('click', () => {
-    cScore = 0;
     pScore = 0;
-    result.textContent = 'First to 5 wins'
+    cScore = 0;
+    winLoss.textContent = 'First to 5 wins'
     updateScore();
   });
-
-const winloss = document.querySelector('#winloss');
-
-  if (cScore === 5 ) {
-    winloss.textContent = 'The computer wins'
-  }
-
-  if (pScore === 5) {
-    winloss.textContext = 'You win!'
-  }
