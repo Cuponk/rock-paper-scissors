@@ -1,3 +1,6 @@
+let cScore = 0;
+let pScore = 0;
+
 function getComputerChoice() {
     let rand = Math.floor(Math.random() * 3);
     let result;
@@ -37,29 +40,79 @@ function getComputerChoice() {
     }
   }
 
-  function game() {
-      let userScore = 0;
-      let cpuScore = 0;
-    for (let i = 0; i < 5; i++) {
-      let input = prompt('Rock, Paper, Scissors?')
-      if (playRound(input, getComputerChoice()) == 1) {
-        cpuScore++;
-        console.log('You lose! The score is ' + userScore + ' to ' + cpuScore + '.');
-      }
-      else if (playRound(input, getComputerChoice()) == 2) {
-        userScore++;
-        console.log('You win! The score is ' + userScore + ' to ' + cpuScore + '.');
-      }
-      else if (playRound(input, getComputerChoice()) == 3) {
-        console.log('Tie! The score is ' + userScore + ' to ' + cpuScore + '.');
-      }
-    }
-    if (userScore > cpuScore) {
-      console.log('You win!');
-    }
-    else {
-      console.log('You lose!')
-    }
-  }
+  const rock = document.querySelector('.rock');
+  const paper = document.querySelector('.paper');
+  const scissors = document.querySelector('.scissors');
+  const restart = document.querySelector('#restart')
 
-  game();
+  let result = document.querySelector('#results');
+
+function updateScore() {
+  let playerScore = document.querySelector('#playScore');
+  playerScore.textContent = `User: ${pScore}`;
+
+  let computerScore = document.querySelector('#compScore');
+  computerScore.textContent = `Computer: ${cScore}`;
+}
+result.textContent = 'First to 5 wins';
+
+  rock.addEventListener('click', () => {
+    if (playRound('rock', getComputerChoice()) == 1) {
+      cScore++;
+      result.textContent = 'You lose!';
+      updateScore();
+    }
+    else if (playRound('rock', getComputerChoice()) == 2) {
+      pScore++;
+      result.textContent = 'You win!';
+      updateScore();
+    }
+    else if (playRound('rock', getComputerChoice()) == 3) {
+      result.textContent = 'Draw!';
+    }
+  });
+
+  paper.addEventListener('click', () => {
+    if (playRound('paper', getComputerChoice()) == 1) {
+      cScore++;
+      result.textContent = 'You lose!';
+      updateScore();
+    }
+    else if (playRound('paper', getComputerChoice()) == 2) {
+      pScore++;
+      result.textContent = 'You win!';
+      updateScore();
+    }
+    else if (playRound('paper', getComputerChoice()) == 3) {
+      result.textContent = 'Draw!';
+    }
+  });
+
+  scissors.addEventListener('click', () => {
+    if (playRound('scissors', getComputerChoice()) == 1) {
+      cScore++;
+      result.textContent = 'You lose!';
+      updateScore();
+    }
+    else if (playRound('scissors', getComputerChoice()) == 2) {
+      pScore++;
+      result.textContent = 'You win!';
+      updateScore();
+    }
+    else if (playRound('scissors', getComputerChoice()) == 3) {
+      result.textContent = 'Draw!';
+    }
+  });
+
+  restart.addEventListener('click', () => {
+    cScore = 0;
+    pScore = 0;
+    result.textContent = 'First to 5 wins'
+    updateScore();
+  });
+
+const winloss = document.querySelector('#winloss');
+
+  if (cScore === 5 ) {
+
+  }
