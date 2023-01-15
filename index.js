@@ -114,5 +114,9 @@ result.textContent = 'First to 5 wins';
 const winloss = document.querySelector('#winloss');
 
   if (cScore === 5 ) {
+    winloss.textContent = 'The computer wins'
+  }
 
+  if (pScore === 5) {
+    winloss.textContext = 'You win!'
   }
