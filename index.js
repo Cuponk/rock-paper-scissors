@@ -119,8 +119,3 @@ function playGame() {
     winLoss.textContent = "Darn, you lost the game :("
   }
 }
-
-restart.addEventListener("click", () => {
-  playGame();
-});
-  playGame();
