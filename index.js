@@ -52,8 +52,15 @@ const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
 const restart = document.querySelector("#restart");
 const winLoss = document.querySelector("#winLoss");
+const btn = document.querySelectorAll("input")
 
 let result = document.querySelector("#results");
+
+function diableButtons() {
+  btn.forEach(elem => {
+    elem.disabled = true;
+  });
+}
 
 function updateScore() {
   let playerScore = document.querySelector("#playScore");
@@ -63,59 +70,52 @@ function updateScore() {
   computerScore.textContent = `Computer: ${cScore}`;
 }
 
-
-
-function playGame() {
   winLoss.textContent = "First to 5 wins";
-  cScore = 0;
-  pScore = 0;
-    rock.addEventListener("click", () => {
-      if (playRound("rock", getComputerChoice()) == 1) {
-        cScore++;
-        result.textContent = "You lose!";
-        updateScore();
-      } else if (playRound("rock", getComputerChoice()) == 2) {
-        pScore++;
-        result.textContent = "You win!";
-        updateScore();
-      } else if (playRound("rock", getComputerChoice()) == 3) {
-        result.textContent = "Draw!";
-      }
-    });
+  rock.addEventListener("click", () => {
+    if (playRound("rock", getComputerChoice()) == 1) {
+      cScore++;
+      result.textContent = "You lose!";
+      updateScore();
+    } else if (playRound("rock", getComputerChoice()) == 2) {
+      pScore++;
+      result.textContent = "You win!";
+      updateScore();
+    } else if (playRound("rock", getComputerChoice()) == 3) {
+      result.textContent = "Draw!";
+    }
+  });
 
-    paper.addEventListener("click", () => {
-      if (playRound("paper", getComputerChoice()) == 1) {
-        cScore++;
-        result.textContent = "You lose!";
-      } else if (playRound("paper", getComputerChoice()) == 2) {
-        pScore++;
-        result.textContent = "You win!";
-      } else if (playRound("paper", getComputerChoice()) == 3) {
-        result.textContent = "Draw!";
-      }
-    });
+  paper.addEventListener("click", () => {
+    if (playRound("paper", getComputerChoice()) == 1) {
+      cScore++;
+      result.textContent = "You lose!";
+    } else if (playRound("paper", getComputerChoice()) == 2) {
+      pScore++;
+      result.textContent = "You win!";
+    } else if (playRound("paper", getComputerChoice()) == 3) {
+      result.textContent = "Draw!";
+    }
+  });
 
-    scissors.addEventListener("click", () => {
-      if (playRound("scissors", getComputerChoice()) == 1) {
-        cScore++;
-        result.textContent = "You lose!";
-        updateScore();
-      } else if (playRound("scissors", getComputerChoice()) == 2) {
-        pScore++;
-        result.textContent = "You win!";
-        updateScore();
-      } else if (playRound("scissors", getComputerChoice()) == 3) {
-        result.textContent = "Draw!";
-      }
-    });
-}
+  scissors.addEventListener("click", () => {
+    if (playRound("scissors", getComputerChoice()) == 1) {
+      cScore++;
+      result.textContent = "You lose!";
+      updateScore();
+    } else if (playRound("scissors", getComputerChoice()) == 2) {
+      pScore++;
+      result.textContent = "You win!";
+      updateScore();
+    } else if (playRound("scissors", getComputerChoice()) == 3) {
+      result.textContent = "Draw!";
+    }
+  });
+  if (playerScore.textContent = 'User: 5') {
+    winLoss.textContent = "Too bad! you lost the game :(";
+    diableButtons();
+  }
+  else if (computerScore.textContent = 'Computer: 5') {
+    winLoss.textContent = "Congrats! you won the game :)";
+    diableButtons();
+  }
 
-playGame();
-
-restart.addEventListener("click", () => {
-  pScore = 0;
-  cScore = 0;
-  updateScore();
-  result.textContent = "";
-  playGame();
-});
