@@ -1,5 +1,5 @@
-let cScore;
-let pScore;
+let cScore = 0;
+let pScore = 0;
 
 function getComputerChoice() {
   let rand = Math.floor(Math.random() * 3);
@@ -69,7 +69,6 @@ function playGame() {
   winLoss.textContent = "First to 5 wins";
   cScore = 0;
   pScore = 0;
-  while (cScore < 5 || pScore < 5) {
     rock.addEventListener("click", () => {
       if (playRound("rock", getComputerChoice()) == 1) {
         cScore++;
@@ -109,13 +108,14 @@ function playGame() {
         result.textContent = "Draw!";
       }
     });
-  }
-  if (pScore == 5) {
-    updateScore();
-    winLoss.textContent = "Congrats! You Won the Game!";
-  }
-  else if (cScore == 5) {
-    updateScore();
-    winLoss.textContent = "Darn, you lost the game :("
-  }
 }
+
+playGame();
+
+restart.addEventListener("click", () => {
+  pScore = 0;
+  cScore = 0;
+  updateScore();
+  result.textContent = "";
+  playGame();
+});
